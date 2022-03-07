@@ -1,0 +1,19 @@
+---
+- name: upgrade all packages
+  become: true
+  yum:
+    name: '*'
+    state: latest
+
+- name: Install Python3
+  become: true
+  yum:
+    name: 'python3'
+    state: latest
+
+- name: Install awscli
+  become: true
+  pip:
+    name: awscli
+    executable: pip3
+    extra_args: --upgrade
